@@ -56,7 +56,7 @@ typedef struct{
     process_t *proc_queue[MAX];       //queue
     int front;
     int rear;
-    int count
+    int count;
 }R_queue_t;
 
 /*    queue operatons     */
