@@ -6,8 +6,7 @@
 ## Stuff Done:-
 - [x] Pointers and memory
 - [x] File Handling 
-- [curr] Certain system calls and file descriptors
-- [ ] shell
+- [x] Certain system calls and file descriptors
 
 ### Pointers and memory:- 
 - [x] Pointer Arithmetic
@@ -26,13 +25,5 @@
 ### System calls and File:- 
 - [x] System Calls and File descriptor basic
 - [x] A schedular (struct with PID, state)
-- [ ] fcfs and roundrobin(separately)
-- [ ] simple shell                              ---Project
+- [x] fcfs and roundrobin(separately)
             
-### Some possible projects:-
-- [ ] sotring linear regression data in a .csv
-- [ ] packet logger
-- [ ] password analyzer
-- [ ] Bitmask based control system and others
-
----
