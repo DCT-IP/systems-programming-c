@@ -5,8 +5,6 @@
 
   - [x] System Calls and File descriptor basic
   - [x] A schedular (struct with PID, state)
-  - [ ] fcfs and roundrobin(separately)
-  - [ ] simple shell                              ---Project
-
+  - [x] fcfs and roundrobin(separately)
 ---
 
