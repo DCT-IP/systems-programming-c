@@ -14,7 +14,6 @@ The goal is to move from low-level concepts to building real systems.
 * Dynamic memory allocation
 * 2D arrays (heap-based)
 * Bitwise operations:
-
   * Set, clear, toggle bits
   * XOR swap
 * Bitmask-based flag system (project)
@@ -56,13 +55,3 @@ The goal is to move from low-level concepts to building real systems.
 * Serve basic routes
 
 ---
-
-# Goals
-
-* Understand how systems work at a low level
-* Build an HTTP server from scratch
-* Transition into backend systems and security
-* Improve debugging and problem-solving ability
-
----
-

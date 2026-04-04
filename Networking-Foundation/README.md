@@ -1,6 +1,34 @@
 # Networking Foundation 
 
 ---
+## structure
+Networking-Foundations/
+│
+├─ http_server/
+│   ├─ README.md
+│   ├─ main.c
+│   └─ index.html
+│
+├─ dns_basics/
+│   ├─ README.md
+│   ├─ capture.pcap
+│   └─ example_query.py
+│
+├─ socket_programming/
+│   ├─ README.md
+│   ├─ tcp_echo_server.c
+│   ├─ tcp_client.c
+│   └─ udp_server_client.c
+│
+├─ Python_Socket/
+|   ├─ README.md
+|   ├─ TCP_echo_server
+|   ├─ tcp_client.c
+│   └─ udp_server_client.c
+└─ README.md  # optional root overview
+
+---
+
 
 ## HTTP and Client Server Model
  - a minimal HTTP server in C 
