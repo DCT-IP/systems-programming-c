@@ -20,11 +20,6 @@ Networking-Foundations/
 │   ├─ tcp_client.c
 │   └─ udp_server_client.c
 │
-├─ Python_Socket/
-|   ├─ README.md
-|   ├─ TCP_echo_server
-|   ├─ tcp_client.c
-│   └─ udp_server_client.c
 └─ README.md  # optional root overview
 
 ---
@@ -49,8 +44,6 @@ Networking-Foundations/
  - TCP Client Server
  - UDP Client-server
 
-## Python Networking
- - rebuild the echo server in python
 
 ---
 
