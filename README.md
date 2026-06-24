@@ -1,22 +1,58 @@
 # C Systems Programming Journey
 
-This repository tracks my progression in C programming with a systems-focused approach, aligned with a roadmap toward backend, networking, and security engineering.
+This repository documents my journey through C and systems programming, focusing on the foundations required for backend engineering, networking, cybersecurity, operating systems, and embedded firmware development.
 
-The goal is to move from low-level concepts to building real systems.
+The objective is to build a strong understanding of how software interacts with memory, the operating system, hardware abstractions, and networks before progressing to larger systems and firmware projects.
+
+---
+
+# Learning Progression
+
+```text
+Memory & Data
+      ↓
+File Systems
+      ↓
+Processes & OS
+      ↓
+Networking
+      ↓
+Embedded Foundations
+```
 
 ---
 
 # Content:
 
-## Memory and Pointers
+## Memory and Data
 
+### Memory and Pointers
+
+* Memory addresses
+* Pointers and dereferencing
 * Pointer arithmetic
+* Arrays and pointers
+* Function stack frames
+* Stack vs Heap
 * Dynamic memory allocation
 * 2D arrays (heap-based)
-* Bitwise operations:
-  * Set, clear, toggle bits
-  * XOR swap
+
+### Bitwise Operations
+
+* AND, OR, XOR, NOT
+* Left and Right Shift
+* Set, clear, toggle bits
+* XOR swap
+* Power-of-two checks
+* Counting set bits
 * Bitmask-based flag system (project)
+
+### Embedded C Foundations
+
+* volatile keyword
+* stdint.h
+* Structures
+* Register modelling
 
 ---
 
@@ -37,21 +73,51 @@ The goal is to move from low-level concepts to building real systems.
 * File descriptors
 * Low-level system calls (open, read, write)
 * Process-based struct handling
-* CPU scheduling simulations:
 
-  * FCFS
-  * Round Robin (separate implementations)
+### CPU Scheduling Simulations
 
---- 
+* FCFS
+* Round Robin (separate implementations)
 
-## HTTP-Server
+### Hardware Interface Foundations
+
+* Registers
+* Memory-Mapped I/O
+* GPIO simulation
+* Polling
+* Interrupt simulation
+
+---
+
+## Networking Foundations
+
+### TCP Sockets
 
 * TCP sockets
 * Client-server model
 * Connection lifecycle
+
+### HTTP Server
+
 * Accept TCP connections
 * Parse HTTP requests (GET)
 * Construct valid HTTP responses
 * Serve basic routes
 
 ---
+
+# Goal
+
+By the completion of this repository, I aim to understand:
+
+* Memory management
+* Dynamic allocation
+* Bitwise manipulation
+* Embedded C fundamentals
+* File systems
+* Operating system interfaces
+* Process behaviour
+* Network programming
+* Hardware abstractions
+
+These concepts form the foundation for future backend, networking, security, and embedded firmware projects.
