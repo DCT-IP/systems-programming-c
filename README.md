@@ -63,28 +63,40 @@ Embedded Foundations
 * Structs with file storage
 * Arrays and serialization
 * Command-line arguments
+
+### Projects
+
 * Struct-based mini database system
-* Sensor logger storing data in .bin (project)
+* Sensor logger storing data in `.bin`
 
 ---
 
 ## Process and OS
 
 * File descriptors
-* Low-level system calls (open, read, write)
-* Process-based struct handling
+* Low-level system calls (`open`, `read`, `write`)
+* Process creation and management
 
 ### CPU Scheduling Simulations
 
-* FCFS
-* Round Robin (separate implementations)
+* First Come First Serve (FCFS)
+* Round Robin
+
+### Shell Programming
+
+* Command parsing
+* Process spawning (`fork`)
+* Program execution (`exec`)
+* Process synchronization (`wait`)
+* Basic shell implementation
 
 ### Hardware Interface Foundations
 
-* Registers
-* Memory-Mapped I/O
+* Register simulation
+* Register flag manipulation
+* Memory-Mapped I/O concepts
 * GPIO simulation
-* Polling
+* Polling simulation
 * Interrupt simulation
 
 ---
@@ -106,6 +118,28 @@ Embedded Foundations
 
 ---
 
+# Repository Projects
+
+### Systems Projects
+
+* Bitmask Flag System
+* Mini Database
+* Sensor Logger
+* FCFS Scheduler
+* Round Robin Scheduler
+* Mini Shell
+* HTTP Server
+
+### Embedded Foundation Projects
+
+* Mock Register Simulation
+* Register Flag Simulation
+* GPIO Simulator
+* Polling Simulator
+* Interrupt Simulator
+
+---
+
 # Goal
 
 By the completion of this repository, I aim to understand:
@@ -113,11 +147,12 @@ By the completion of this repository, I aim to understand:
 * Memory management
 * Dynamic allocation
 * Bitwise manipulation
-* Embedded C fundamentals
-* File systems
+* File systems and persistence
 * Operating system interfaces
-* Process behaviour
+* Process creation and scheduling
+* Shell fundamentals
 * Network programming
 * Hardware abstractions
+* Embedded systems fundamentals
 
-These concepts form the foundation for future backend, networking, security, and embedded firmware projects.
+These concepts form the foundation for future backend, networking, security, operating systems, and embedded firmware projects.
