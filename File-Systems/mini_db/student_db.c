@@ -19,6 +19,7 @@ it has
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define MAX 50
 
 //Data Type made to store informations
@@ -67,24 +68,144 @@ void menu(void){
 
 void add_student(void)
 {
-    printf("ok\n");
+    FILE *ptr;
+    ptr = fopen("Student_DB.bin", "ab");
+    if(ptr == NULL){
+        printf("ERR: The File couldn't be opened!!\n");
+        return;
+    } else {
+        student stu;
+        printf("Give Details of the student:-\n");
+        printf("NAME: "); scanf(" %49[^\n]", stu.name);;
+        printf("ID: "); scanf("%d", &stu.id);
+        printf("Age: "); scanf("%d", &stu.age);
+        fwrite(&stu,sizeof(student),1,ptr);
+        printf("\nStudent Added Succesfully :3\n");
+        fclose(ptr);
+    }
+
 }
 
 void view_students(void)
 {
-    printf("ok\n");
+    FILE *ptr;
+    ptr = fopen("Student_DB.bin", "rb");
+    if(ptr == NULL){
+        printf("ERR: The File couldn't be opened!!\n");
+        return;
+    } else {
+        printf("DataBase Found!!!\n");
+        student stu_read;
+        int count = 0;
+        printf("\n============STUDENTS============\n");
+        while(fread(&stu_read,sizeof(student),1,ptr)){
+            printf("ID:   %d\n", stu_read.id);
+            printf("Name: %s\n", stu_read.name);
+            printf("Age:  %d\n", stu_read.age);
+            count++;
+        }
+        if(count==0){
+            printf("\nTHE DATABASE is Empty!!\n");
+        }
+        printf("\n================================\n");
+    }
+    fclose(ptr);
 }
 
 void search_student(void)
 {
-    printf("ok\n");
+    FILE *ptr;
+    ptr = fopen("Student_DB.bin", "rb");
+    if(ptr==NULL){
+        printf("ERR: The File couldn't be opened!!\n");
+        return;
+    } else {
+        int id_find;
+        student stu_search;
+        int found = 0;
+        printf("Enter the ID of the student you wanted to find: ");scanf("%d",&id_find);
+        printf("\nStarting the search....\n");
+        while(fread(&stu_search, sizeof(student),1,ptr) == 1){
+            if(stu_search.id == id_find){
+                
+                break;
+            }
+        }
+        if (found)
+        {
+            printf("\nID:   %d\n", stu_search.id);
+            printf("Name: %s\n", stu_search.name);
+            printf("Age:  %d\n", stu_search.age);
+        } else {
+            printf("\nNo such Student Found!!!\n");
+        }
+        
+    }
+    fclose(ptr);
 }
 
 void update_student(void)
 {
-    printf("ok\n");
+    FILE *ptr = fopen("Student_DB.bin", "rb+");
+    if(ptr == NULL)
+    {
+        printf("Database not found.\n");
+        return;
+    }
+    int id;
+    int found = 0;
+    student stu;
+    printf("Enter Student ID to update: ");
+    scanf("%d", &id);
+    while(fread(&stu, sizeof(student), 1, ptr) == 1)
+    {
+        if(stu.id == id)
+        {
+            found = 1;
+            printf("Enter New Name: ");
+            scanf(" %49[^\n]", stu.name);
+            printf("Enter New Age: ");
+            scanf("%d", &stu.age);
+            fseek(ptr, -(long)sizeof(student), SEEK_CUR);
+            fwrite(&stu, sizeof(student), 1, ptr);
+            printf("Student Updated Successfully.\n");
+            break;
+        }
+    }
+    if(!found)
+        printf("Student Not Found.\n");
+    fclose(ptr);
 }
+
 void delete_student(void)
 {
-    printf("ok\n");
+    FILE *ptr = fopen("Student_DB.bin", "rb");
+    if(ptr == NULL)
+    {
+        printf("Database not found.\n");
+        return;
+    }
+    FILE *temp = fopen("temp.bin", "wb");
+    student stu;
+    int id;
+    int found = 0;
+    printf("Enter Student ID to delete: ");
+    scanf("%d", &id);
+    while(fread(&stu, sizeof(student), 1, ptr) == 1)
+    {
+        if(stu.id == id)
+        {
+            found = 1;
+            continue;
+        }
+        fwrite(&stu, sizeof(student), 1, temp);
+    }
+    fclose(ptr);
+    fclose(temp);
+    remove("Student_DB.bin");
+    rename("temp.bin", "Student_DB.bin");
+    if(found)
+        printf("Student Deleted Successfully.\n");
+    else
+        printf("Student Not Found.\n");
 }
