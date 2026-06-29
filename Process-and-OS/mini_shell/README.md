@@ -60,8 +60,8 @@ mini_shell/
 * [X] perror(): Sampling system error registers to unpack readable descriptions of low-level faults.
 
 ### File Table & I/O Mapping
-* [ ] pipe(): Direct allocation of an un-named kernel memory ring buffer exposed as a matched pair of file indexes.
-* [ ] dup() / dup2(): Forcing target slot allocations in the process file table to overwrite default channels (stdin/stdout).
+* [x] pipe(): Direct allocation of an un-named kernel memory ring buffer exposed as a matched pair of file indexes.
+* [x] dup() / dup2(): Forcing target slot allocations in the process file table to overwrite default channels (stdin/stdout).
 
 ---
 
