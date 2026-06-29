@@ -1,158 +1,76 @@
-# C Systems Programming Journey
+# C Systems & Firmware Foundations
 
-This repository documents my journey through C and systems programming, focusing on the foundations required for backend engineering, networking, cybersecurity, operating systems, and embedded firmware development.
+This repository documents my engineering journey through low-level C and systems programming. It serves as the foundational bedrock required for operating systems, networking, and bare-metal embedded firmware development.
 
-The objective is to build a strong understanding of how software interacts with memory, the operating system, hardware abstractions, and networks before progressing to larger systems and firmware projects.
+The core objective is to master how software interfaces directly with memory, hardware abstractions, and network stacks before moving on to complex microcontroller architectures, real-time operating systems (RTOS), and device drivers.
 
 ---
 
 # Learning Progression
 
-```text
-Memory & Data
-      ↓
-File Systems
-      ↓
-Processes & OS
-      ↓
-Networking
-      ↓
-Embedded Foundations
-```
+Memory & Bit-Manipulation ➔ File Subsystems & Serialization ➔ OS Kernel Mechanics ➔ Network Protocols ➔ Embedded Foundations
 
 ---
 
-# Content:
+# Separate Engineering Projects
 
-## Memory and Data
+These are self-contained projects built to apply the modules' foundations into structural subsystems, mimicking embedded logging, flash storage mechanics, and core OS tasks.
 
-### Memory and Pointers
+### 1. Bitmask-Based Flag System (/memory-and-data)
+* Implements precise software configuration state tracking and conditional access controls using bitwise primitives, mimicking hardware status registers.
 
-* Memory addresses
-* Pointers and dereferencing
-* Pointer arithmetic
-* Arrays and pointers
-* Function stack frames
-* Stack vs Heap
-* Dynamic memory allocation
-* 2D arrays (heap-based)
+### 2. Struct-Based Mini Database System (/File-Systems)
+* Implements custom binary file parsing, relational CRUD logic, and direct record positioning via byte-offset calculations. This project simulates structured data persistence on raw flash storage media without a database engine.
 
-### Bitwise Operations
+### 3. Continuous Sensor Telemetry Logger (/File-Systems)
+* A telemetry ingestion subsystem designed to continuously read, parse, and pack simulated real-time data from hardware sensors directly into a serialized binary format (.bin).
 
-* AND, OR, XOR, NOT
-* Left and Right Shift
-* Set, clear, toggle bits
-* XOR swap
-* Power-of-two checks
-* Counting set bits
-* Bitmask-based flag system (project)
+### 4. Deterministic CPU Schedulers (/Process-and-OS)
+* Implements custom simulations for First-Come First-Served (FCFS) and Round Robin task scheduling algorithms to evaluate execution waiting and turnaround time metrics.
 
-### Embedded C Foundations
+### 5. Custom Shell Architecture (/Process-and-OS)
+* A lightweight command-line interpreter that handles raw string parsing, process isolation via fork and exec system calls, and synchronous child-state tracking via wait.
 
-* volatile keyword
-* stdint.h
-* Structures
-* Register modelling
+### 6. Hardware Interface Foundations (/Process-and-OS)
+* A simulation suite modeling memory-mapped I/O (MMIO), register flags, GPIO pins, synchronous polling loop behavior, and asynchronous hardware interrupt service routines.
+
+### 7. Native HTTP Web Server (/Networking-Foundation)
+* A multi-stage C web server that manages network socket lifecycles, manually parses raw inbound ASCII GET requests, and delivers static landing pages.
 
 ---
 
-## File Systems
+# Repository Directory Structure & Broad Topics
 
-* File I/O basics
-* Binary file handling
-* Structs with file storage
-* Arrays and serialization
-* Command-line arguments
+## 1. Memory, Bitwise Architecture & Embedded Primitives (/memory-and-data)
+Focuses on manual memory layout, stack behavior, and hardware register modeling using direct C primitives.
 
-### Projects
+* Pointers & Stack Frames: Analyzing stack frame allocations, pointer arithmetic, dereferencing, safe heap management, and dynamic multi-dimensional array structures.
+* Bitwise Manipulation: Working at the bit level using logic gates (AND, OR, XOR, NOT), bit-shifts, power-of-two checks, set-bit counting, and XOR register swapping.
+* Embedded C Foundations: Enforcing hardware-state integrity using the volatile keyword, optimizing space with C structures, and utilizing explicit type-widths via stdint.h.
 
-* Struct-based mini database system
-* Sensor logger storing data in `.bin`
+## 2. Storage Engineering & Serialization (/File-Systems)
+Covers raw data processing, stream vs. binary file operations, and building robust host-side command-line utilities.
 
----
+* Stream and Character I/O: Handling standard text inputs, character arrays, string processing, and basic file system streams.
+* Binary Handling & Serialization: Writing raw data structures cleanly to disk to achieve compact, fast-loading, and predictable storage layouts.
+* Command-Line Tooling: Parsing runtime parameters (argc, argv) to build functional, configurable system utilities.
 
-## Process and OS
+## 3. Process Architecture & Hardware Simulation (/Process-and-OS)
+Explores kernel interfaces, task scheduling, and software models of micro-architectural hardware behaviors.
 
-* File descriptors
-* Low-level system calls (`open`, `read`, `write`)
-* Process creation and management
+* Kernel API Basics: Making direct system calls to the operating system kernel for core resource actions using low-level file descriptors (open, read, write).
+* Shell Mechanics: Understanding low-level execution separation, environment loading, and tracking process lifecycles.
+* CPU Scheduling: Simulating task scheduling algorithms to track resource efficiency, mirroring the foundational logic of Real-Time Operating System (RTOS) schedulers.
+* Hardware Interface Emulation: Mimicking physical board components including memory-mapped I/O registers, GPIO pins, status loops, and interrupt service routines (ISRs).
 
-### CPU Scheduling Simulations
+## 4. Networking Foundations & Sockets (/Networking-Foundation)
+Covers protocol stacks, socket lifecycles, and network I/O buffering from the transport layer up.
 
-* First Come First Serve (FCFS)
-* Round Robin
-
-### Shell Programming
-
-* Command parsing
-* Process spawning (`fork`)
-* Program execution (`exec`)
-* Process synchronization (`wait`)
-* Basic shell implementation
-
-### Hardware Interface Foundations
-
-* Register simulation
-* Register flag manipulation
-* Memory-Mapped I/O concepts
-* GPIO simulation
-* Polling simulation
-* Interrupt simulation
+* Socket Programming: Building raw network pipelines using stateful TCP streams, connection lifecycles, and the classic client-server model.
+* Application Layer Protocols: Parsing inbound HTTP stream segments and manually constructing standard HTTP-compliant payload headers.
 
 ---
 
-## Networking Foundations
+# Firmware Roadmap Focus
 
-### TCP Sockets
-
-* TCP sockets
-* Client-server model
-* Connection lifecycle
-
-### HTTP Server
-
-* Accept TCP connections
-* Parse HTTP requests (GET)
-* Construct valid HTTP responses
-* Serve basic routes
-
----
-
-# Repository Projects
-
-### Systems Projects
-
-* Bitmask Flag System
-* Mini Database
-* Sensor Logger
-* FCFS Scheduler
-* Round Robin Scheduler
-* Mini Shell
-* HTTP Server
-
-### Embedded Foundation Projects
-
-* Mock Register Simulation
-* Register Flag Simulation
-* GPIO Simulator
-* Polling Simulator
-* Interrupt Simulator
-
----
-
-# Goal
-
-By the completion of this repository, I aim to understand:
-
-* Memory management
-* Dynamic allocation
-* Bitwise manipulation
-* File systems and persistence
-* Operating system interfaces
-* Process creation and scheduling
-* Shell fundamentals
-* Network programming
-* Hardware abstractions
-* Embedded systems fundamentals
-
-These concepts form the foundation for future backend, networking, security, operating systems, and embedded firmware projects.
+Every module in this repository is designed to build the specific mental models required for bare-metal firmware development. Bitwise tracking translates directly to writing peripheral configuration registers, binary serialization mirrors flash memory allocation maps, hardware simulations map directly to microcontroller interrupts, and socket pipelines lay the foundation for custom industrial network protocol stacks.

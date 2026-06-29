@@ -1,57 +1,43 @@
-# Networking Foundation 
+# Networking Foundations (/Networking-Foundation)
+
+This module builds networking protocols and application interfaces from the transport layer up. It establishes a practical understanding of socket lifecycles, data encapsulation, and buffer management, drawing architectural paradigms from standard reference sources like Beej's Guide and Kurose & Ross.
 
 ---
-## structure
+
+# Module Repository Directory Structure
+
 Networking-Foundations/
 │
-├─ http_server/
-│   ├─ README.md
-│   ├─ main.c
-│   └─ index.html
-│
 ├─ dns_basics/
-│   ├─ README.md
-│   ├─ capture.pcap
-│   └─ example_query.py
+│  ├─ example_query.py
+│  └─ capture.pcap
 │
 ├─ socket_programming/
-│   ├─ README.md
-│   ├─ tcp_echo_server.c
-│   ├─ tcp_client.c
-│   └─ udp_server_client.c
+│  ├─ tcp_echo_server.c
+│  ├─ tcp_client.c
+│  └─ udp_server_client.c
 │
-└─ README.md  # optional root overview
+└─ http_server/
+   ├─ http_server.c
+   └─ index.html
 
 ---
 
+# Core Concepts Covered & Implemented
 
-## HTTP and Client Server Model
- - a minimal HTTP server in C 
- - accepts TCP
- - Parse GET request
- - Serve Static HTML
- - Return 404 for unknown routes 
+### 1. Socket Programming & Transport Architecture
+* [X] TCP Client-Server Model: Establishing stateful, reliable byte-stream transport pipelines, handling explicit socket lifecycles, and managing network connection loops.
+* [X] TCP Echo Server: Handling basic concurrent buffer cycles by reflecting inbound payload packets directly back to connected clients.
+* [X] UDP Client-Server Architecture: Implementing lightweight, connectionless datagram transmission pipelines where packet boundaries are preserved without connection overhead.
 
----
-
-## DNS basics 
- - Wireshark will be used to capture DNS query 
+### 2. Application Layer & Protocol Engineering
+* [X] Native HTTP Web Server: Building a multi-stage server from scratch that directly accepts raw TCP descriptors, manually parses ASCII inbound GET lines, handles static file delivery, and returns formal status codes (like 404 Not Found) for invalid routes.
+* [X] Domain Name Subsystem (DNS) Basics: Utilizing reference scripts to generate real-time domain name resolution packets and capturing the raw networking handshakes via packet analysis tools (.pcap).
 
 ---
 
-## Socket Programming
- - TCP Echo Server
- - TCP Client Server
- - UDP Client-server
-
-
----
-
-## Sources
- - Kurose & Ross A top down approach
- - MDN HTTP Docs
- - Cloudflare DNS Learning Docs
- - Beej's guide to network programming 
- - python socket documentation
-
----
+# Primary Engineering References
+* Kurose & Ross — Computer Networking: A Top-Down Approach
+* Beej's Guide to Network Programming
+* MDN Web Docs — HTTP Protocols
+* Cloudflare Learning Docs — DNS Mechanics
