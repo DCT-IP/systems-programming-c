@@ -1,6 +1,6 @@
 /*
 A very minimal Shell in this session
-take input -> show input(i.e. affirm it for now) -> exit
+take input -> parse the input -> execute the said input -> exit
 thus make a REPL, slowly.
 Now we are Adding parsing to this, basically, wtv is read will be sent to a 
 parser, that'll read it and send it back for now, next session will see it being 
@@ -11,6 +11,7 @@ actually acted on
 #include <stdlib.h>
 #include <string.h>
 #include "parser.h"
+#include "executor.h"
 // including  header files necessary 
 #define MAX_BUFFER_SIZE 1240
 char input[MAX_BUFFER_SIZE]; //input buffer
@@ -24,7 +25,7 @@ int main(){
     input_loop();
 }
 void input_loop(){
-    printf("\n==============WELCOME TO SHELL V0.1b===============\n");
+    printf("\n==============WELCOME TO SHELL V0.1c===============\n");
     while (1)
     {
     //Extra Stuff will be added later
@@ -38,17 +39,8 @@ void input_loop(){
             exit_shell();
         }
         int argc = parse_input(input, argv);
-
-        printf("\nArguments Parsed\n");
-        printf("---------------------\n");
-        printf("argc = %d\n\n", argc);
-
-        for(int i = 0; i < argc; i++)
-        {
-            printf("argv[%d] = %s\n", i, argv[i]);
-        }
-
         printf("\n");
+        execute_command(argv);
     }
 }
 
